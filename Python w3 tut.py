@@ -1,6 +1,6 @@
 # PYTHON VARIABLES
 #print("Hello, World!")
-
+#UM Interactive book code
 numbers = list(range(5))
 for i in numbers:
   print (i)
@@ -11,6 +11,34 @@ for n in range(len(fruits)):
 
 import image
 
+img = image.Image("luther.jpg")
+
+print(img.getWidth())
+print(img.getHeight())
+
+p = img.getPixel(45, 55)      #column,row
+print(p.getRed(), p.getGreen(), p.getBlue())
+
+win = image.ImageWin(img.getWidth(), img.getHeight())
+img.draw(win)
+#img.setDelay(0)   # setDelay(0) turns off animation
+
+'''for row in range(img.getHeight()):
+    for col in range(img.getWidth()):
+        p = img.getPixel(col, row)
+
+        newred = 255 - p.getRed()
+        newgreen = 255 - p.getGreen()
+        newblue = 255 - p.getBlue()
+
+        newpixel = image.Pixel(newred, newgreen, newblue)
+
+        img.setPixel(col, row, newpixel)
+
+img.draw(win)
+win.exitonclick()'''
+
+
 p = image.Pixel(45, 76, 200)
 print(p.getRed())
 p.setRed(66)
@@ -18,6 +46,88 @@ print(p.getRed())
 p.setBlue(p.getGreen())
 print(p.getGreen(), p.getBlue())
 
+percent_rain = [94.3, 45, 100, 78, 16, 5.3, 79, 86]
+print(f'percent_rain{percent_rain}')
+resps = []
+var = 0
+for rain in percent_rain:
+  print(rain)
+  if rain > 90:
+    resps.append('Bring an umbrella.')
+  elif rain > 80:
+    resps.append('Good for the flowers?')
+  elif rain > 50:
+    resps.append('Watch out for clouds!')
+  else:
+    resps.append('Nice day!')
+  var += 1
+  print(resps)
+ 
+a=[1,2,3]                                       #IMP
+b=a
+b.append(5)
+print(a)
+
+alist = ['a', 'd', 'f']                         #IMP
+alist[1:1] = ['b', 'c']
+print(alist)
+alist[4:4] = ['e']
+print(alist)
+
+a = ['one', 'two', 'three']
+del a[1]                                          #DELETE OPERATOR FOR LIST
+print(a)
+
+alist = ['a', 'b', 'c', 'd', 'e', 'f']
+del alist[1:5]
+print(alist)
+
+a = "..................................banana................................."
+b = "..................................banana................................."
+
+print(a is b)                                       #Even though seperately defined, they refer same object
+print(a == b)
+b = a[:]                                             # make a clone using slice
+'''Since strings are immutable, the Python interpreter often optimizes 
+resources by making two names that refer to the same string value refer to the same object'''
+
+mylist = []
+mylist.append(5)
+mylist.append(27)
+mylist.insert(1, 12)
+print(mylist)
+print(mylist.count(12))
+print(mylist.index(3))
+mylist.reverse()
+mylist.sort()
+mylist.remove(5)
+lastitem = mylist.pop()
+print(lastitem)
+print(mylist)
+
+ss = "    Hello, World    "
+
+els = ss.count("l")
+print(els)
+
+print("***"+ss.strip()+"***")
+
+news = ss.replace("o", "***")
+print(news)
+
+scores = [("Rodney Dangerfield", -1), ("Marlon Brando", 1), ("You", 100)]
+for person in scores:
+    name = person[0]
+    score = person[1]
+    print("Hello " + name + ". Your score is " + str(score))
+    print("Hello {}. Your score is {}.".format(name, score))
+
+origPrice = float(input('Enter the original price: $'))
+discount = float(input('Enter discount percentage: '))
+newPrice = (1 - discount/100)*origPrice
+calculation = '${:.2f} discounted by {}% is ${:.2f}.'.format(origPrice, discount, newPrice)
+print(calculation)
+#W3 Tut starts from here
 """
     This is a comment
     written in
